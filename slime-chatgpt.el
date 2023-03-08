@@ -18,14 +18,6 @@
 (require 'slime)
 (require 'cl-lib)
 
-(define-slime-contrib slime-chatgpt
-  "Generate comments using ChatGPT."
-  (:authors "Peter von Etter <peterve@gmail.com>")
-  (:license "GPL")
-  (:slime-dependencies)
-  (:swank-dependencies)
-  (:on-load))
-
 (defgroup slime-chatgpt nil
   "Generate comments using ChatGPT."
   :prefix "slime-chatgpt-"
