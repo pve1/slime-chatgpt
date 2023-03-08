@@ -1,7 +1,7 @@
 * ChatGPT for Common Lisp
 
 This file provides the function
-'slime-chatgpt-comment-symbol-at-point' that generates Lisp comments
+~slime-chatgpt-comment-symbol-at-point~ that generates Lisp comments
 for functions using ChatGPT.
 
 IN ORDER TO GET REASONABLE RESULTS, THE ENTIRE BUFFER IS SENT TO
@@ -10,7 +10,7 @@ KEEP PRIVATE.
 
 Requirements:
 
-1. (setq slime-chatgpt-api-key "MY-SECRET-API-KEY")
+1. ~(setq slime-chatgpt-api-key "MY-SECRET-API-KEY")~
    - An OpenAI api key
 
 2. curl (for connecting to ChatGPT)
@@ -20,5 +20,5 @@ Requirements:
 
 ** Usage
 
-Move the point to a symbol and call slime-chatgpt-comment-symbol-at-point.
+Move the point to a symbol and call ~slime-chatgpt-comment-symbol-at-point~.
 
