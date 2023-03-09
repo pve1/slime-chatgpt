@@ -1,8 +1,12 @@
 * ChatGPT for Common Lisp
 
-This file provides the function
-~slime-chatgpt-comment-symbol-at-point~ that generates Lisp comments
-for functions using ChatGPT.
+This file provides the functions
+
+~slime-chatgpt-comment-symbol-at-point~
+  - Generates comments for functions using ChatGPT.
+
+~slime-chatgpt-consult~
+  - Answers general questions about the current buffer.
 
 IN ORDER TO GET REASONABLE RESULTS, THE ENTIRE BUFFER IS SENT TO
 CHATGPT AS CONTEXT. DO NOT USE THIS ON CODE YOU WANT TO
@@ -17,8 +21,8 @@ Requirements:
 
 3. jq (for parsing the response)
 
-
 ** Usage
 
-Move the point to a symbol and call ~slime-chatgpt-comment-symbol-at-point~.
+- Move the point to a symbol and call ~slime-chatgpt-comment-symbol-at-point~.
+- Call ~slime-chatgpt-consult~ anywhere in the buffer.
 
