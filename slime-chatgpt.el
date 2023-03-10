@@ -1,17 +1,21 @@
+;;; Slime Chatgpt
+;;;
+;;; Author: Peter von Etter <peterve AT gmail.com>
+;;;
 ;;; This file provides the functions
-
-;; 'slime-chatgpt-comment-symbol-at-point'
-;;   - Generates comments for functions using ChatGPT.
-
-;; 'slime-chatgpt-consult'
-;;   - Answers general questions about the current buffer.
-
+;;;
+;;; 'slime-chatgpt-comment-symbol-at-point'
+;;;   - Generates comments for functions using ChatGPT.
+;;;
+;;; 'slime-chatgpt-consult'
+;;;   - Answers general questions about the current buffer.
+;;;
 ;;; IN ORDER TO GET REASONABLE RESULTS, THE ENTIRE BUFFER IS SENT TO
 ;;; CHATGPT AS CONTEXT. DO NOT USE THIS ON CODE YOU WANT TO
 ;;; KEEP PRIVATE.
-
+;;;
 ;;; Requirements:
-
+;;;
 ;;; 1. (setq slime-chatgpt-api-key "MY-SECRET-API-KEY")
 ;;;    - An OpenAI api key
 ;;;
