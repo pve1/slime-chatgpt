@@ -80,11 +80,7 @@ File contents:
       (funcall slime-chatgpt-generate-question-function)
     (format slime-chatgpt-question-format-string (symbol-at-point))))
 
-(defun slime-chatgpt-generate-prompt ()
-  (format slime-chatgpt-prompt-format-string
-          (slime-chatgpt-generate-question)
-          (buffer-substring-no-properties 1 (buffer-end 1))))
-
+(defvar slime-chatgpt-generate-prompt-function nil)
 (defvar slime-chatgpt-question-history nil)
 
 (defun slime-chatgpt-generate-prompt-interactively ()
@@ -128,7 +124,9 @@ File contents:
            (curl-buffer (get-buffer-create "*slime-chatgpt curl*"))
            (prompt-buffer (get-buffer-create "*slime-chatgpt prompt*"))
            (response-buffer (get-buffer-create "*slime-chatgpt response*"))
-           (prompt (slime-chatgpt-generate-prompt-interactively))
+           (prompt (if slime-chatgpt-generate-prompt-function
+                       (funcall slime-chatgpt-generate-prompt-function)
+                       (slime-chatgpt-generate-prompt-interactively)))
            (json (slime-chatgpt-build-json-payload prompt))
            (command (slime-chatgpt-build-curl-command)))
       (set-buffer response-buffer)
@@ -207,6 +205,16 @@ File contents:
          (slime-chatgpt-generate-question-function
           (lambda ()
             question)))
+    (slime-chatgpt-send-post-request)
+    (slime-chatgpt-insert-response)))
+
+(defun slime-chatgpt-consult-generic-from-buffer ()
+  (interactive)
+  (slime-chatgpt-clear-temporary-buffers)
+  (let* ((slime-chatgpt-format-response-comment nil)
+         (slime-chatgpt-generate-prompt-function
+          (lambda ()
+            (buffer-substring-no-properties 1 (buffer-end 1)))))
     (slime-chatgpt-send-post-request)
     (slime-chatgpt-insert-response)))
 
