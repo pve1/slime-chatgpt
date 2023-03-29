@@ -48,10 +48,11 @@ Please set it with \
 
 (defcustom slime-chatgpt-consult-questions
   '("Could you...?"
-    "Could you write a function that...?"
     "Could you describe the purpose of...?"
+    "Could you write a docstring for the function '...'?"
     "Could you write a few test cases for the function '...'?"
-    "Could you write a wrapper shell script (using the '...' Common Lisp implementation) that calls the function '...'?")
+    "Could you write a wrapper shell script (using the '...' Common Lisp implementation) that calls the function '...'?"
+    "Could you write a function that...?")
   "Example questions we may want to ask ChatGPT."
   :type '(list)
   :group 'slime-chatgpt)
